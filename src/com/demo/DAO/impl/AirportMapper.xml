@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.DAO.AirportDAO">
+	 
+	 <resultMap type="com.demo.model.Airport" id="AirportResult">
+		<result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="state" property="state"/>
+		<result column="identifier" property="identifier"/>
+		<result column="city" property="city"/>
+		<result column="name" property="name"/>
+		<result column="size" property="size"/>
+		<result column="cost" property="cost"/>
+		<result column="enplanements" property="enplanements"/>
+		<result column="dailyUsage" property="dailyUsage"/>
+		<result column="scaled" property="scaled"/>
+		<result column="landingFee" property="landingFee"/>
+		<result column="runwayLength" property="runwayLength"/>
+		<result column="timeZone" property="timeZone"/>
+		<result column="longitude" property="longitude"/>
+		<result column="latitude" property="latitude"/>
+		<result column="multiplier" property="multiplier"/>
+		
+	 </resultMap>
+	 
+      <select id="getAirportByName"  resultMap="AirportResult">
+       select * from airport where name = #{name}
+      </select>
+      <select id="getAirportByIdentifier"  resultMap="AirportResult">
+       select * from airport where identifier = #{identifier}
+      </select>
+      
+      
+      <insert id="buyAirport" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+         insert into user_airport(userId,airportId) values (#{userId},#{airportId})
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+      </insert>
+      
+      <select id="getAirportsByUserId"  resultMap="AirportResult">
+       select a.* from airport a join user_airport b on a.id = b.airportId where b.userId = #{userId} order by a.identifier
+      </select>
+      
+       <select id="getAllAirport"  resultMap="AirportResult">
+       select * from airport order by identifier
+      </select>
+      
+      <delete id="updateUserAirport">
+      	update user_airport set airportId = #{airportId} where userId = #{userId}
+      </delete>
+      
+     <update id="changeDemand">
+     	update airport set multiplier= #{demandMult} where id = #{demandAirport}
+     </update>
+     <delete id="deleteUserAirport">delete from user_airport where userId = #{userId}</delete>
+
+
+</mapper>

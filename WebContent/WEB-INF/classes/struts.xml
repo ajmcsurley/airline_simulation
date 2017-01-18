@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+
+     
+  <package name="LoginAction" namespace="/login" extends="struts-default">
+     	<action name="login" class="com.demo.action.LoginAction" method="userLogin">
+     		<!-- action result and page mapping -->
+     		<result name="studentsuccess">/console/pages/home.jsp</result>
+     		<result name="adminsuccess">/console/pages/adminpages/managestudents.jsp</result>
+     		<result name="error">/console/pages/login.jsp</result>
+     	</action>
+     	
+     	<action name="signout" class="com.demo.action.LoginAction" method="signout">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/login.jsp</result>
+     		<result name="error">/console/pages/login.jsp</result>
+     	</action>
+     	
+     	<action name="loginAsAdmin" class="com.demo.action.LoginAction" method="loginAsAdmin">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/managestudents.jsp</result>
+     		<result name="error">/console/pages/adminpages/error.jsp</result>
+     	</action>
+     	
+     <action name="manageUser" class="com.demo.action.LoginAction" method="manageUser">
+     		<!-- action result and page mapping -->
+     		<result name="adminsuccess">/console/pages/adminpages/managestudents.jsp</result>
+     		<result name="error">/console/pages/adminpages/error.jsp</result>
+     	</action>
+     	
+     	 <action name="generateUser" class="com.demo.action.LoginAction" method="generateUser">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/newusers.jsp</result>
+     		 <result name="error">/console/pages/adminpages/error.jsp</result>
+     	</action>
+     	
+     	<action name="simulateHome" class="com.demo.action.LoginAction" method="simulateHome">
+     		<!-- action result and page mapping -->
+     		  <result name="success">/console/pages/profitResult.jsp</result>
+     		<result name="adminsuccess">/console/pages/adminpages/simulateHome.jsp</result>
+     		 <result name="error">/console/pages/adminpages/error.jsp</result>
+     	</action>
+     	
+     	<action name="runSimulate" class="com.demo.action.LoginAction" method="runSimulate">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/simulateHome.jsp</result>
+     		 <result name="error">/console/pages/adminpages/error.jsp</result>
+     	</action>     	
+     	
+  </package>
+    
+
+   
+    <package name="aircraftAction" namespace="/aircraft" extends="struts-default">  
+        
+        <action name="showAircraft" class="com.demo.action.AircraftAction" method="getPlane">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/aircraft.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     	</action>
+     	
+     	<action name="buyPlane" class="com.demo.action.AircraftAction" method="buyPlane">
+     		<!-- action result and page mapping -->
+     		<!--<result name="success">/console/pages/showplane.jsp</result>-->
+     		<result name="success">/console/pages/setStaffSalary.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     	</action>
+     	
+     	<action name="setStaffSalary" class="com.demo.action.AircraftAction" method="setStaffSalary">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/aircraftcustomize.jsp</result>
+     		<result name="error">/console/pages/setStaffSalary.jsp</result>
+     	</action>
+     	
+     	<action name="customizePlane" class="com.demo.action.AircraftAction" method="customizePlane">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/showplane.jsp</result>
+     		<result name="error">/console/pages/aircraftcustomize.jsp</result>
+     	</action>
+     	
+     	<action name="downAircraftHome" class="com.demo.action.AircraftAction" method="downAircraftHome">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/down.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     	</action>
+     	
+     	  <action name="downAircraft" class="com.demo.action.AircraftAction" method="downAircraft">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/down.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     	</action>
+     	
+     	 <action name="aircraftStaff" class="com.demo.action.AircraftAction" method="aircraftStaff">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/setAircraftStaff.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     	</action>
+     	
+     	 <action name="gotoUpdateSalaryPage" class="com.demo.action.AircraftAction" method="gotoUpdateSalaryPage">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/updateStaffSalary.jsp</result>
+     		<result name="error">/console/pages/setAircraftStaff.jsp</result>
+     	</action>
+     	
+     	 <action name="updateStaffSalary" class="com.demo.action.AircraftAction" method="updateStaffSalary">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/setAircraftStaff.jsp</result>
+     		<result name="error">/console/pages/updateStaffSalary.jsp</result>
+     	</action>
+    </package>
+    
+  <package name="airportAction" namespace="/airport" extends="struts-default">  
+        
+     <action name="getAirport" class="com.demo.action.AirportAction" method="getAirport">
+     		<result name="success">/console/pages/showairport.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     </action>
+     <action name="showAirport" class="com.demo.action.AirportAction" method="airportHome">
+        <result name="success">/console/pages/airport.jsp</result>
+         <result name="error">/console/pages/error.jsp</result>      </action>
+     <action name="buyAirport" class="com.demo.action.AirportAction" method ="buyAirport">
+       <result name="success">/console/pages/airport.jsp</result>
+        <result name="error">/console/pages/error.jsp</result>
+     </action>
+     <action name="adjustMultiplier" class="com.demo.action.AirportAction" method ="adjustMultiplier">
+       <result name="success">/console/pages/adminpages/managedemand.jsp</result>
+        <result name="error">/console/pages/error.jsp</result>
+	</action>
+	<action name="manageDemand" class="com.demo.action.AirportAction" method="manageDemand">
+     		<!-- action result and page mapping -->
+     		<result name="success">/console/pages/adminpages/managedemand.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>     		
+     </action>
+     
+  </package>
+     
+      <package name="routeAction" namespace="/route" extends="struts-default">  
+        
+     <action name="getRoute" class="com.demo.action.RouteAction" method="getRoute">
+     		<result name="success">/console/pages/routehome.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     </action>
+      <action name="aircraftRoute" class="com.demo.action.RouteAction" method="aircraftRoute">
+     		<result name="success">/console/pages/aircraftRoute.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     </action>
+       <action name="addRoute" class="com.demo.action.RouteAction" method="addRoute">
+     		<result name="success">/console/pages/aircraftRoute.jsp</result>
+     		<result name="error">/console/pages/aircraftRoute.jsp</result>
+     </action>
+      <action name="undoRoute" class="com.demo.action.RouteAction" method="undoRoute">
+     		<result name="success">/console/pages/aircraftRoute.jsp</result>
+     		<result name="error">/console/pages/aircraftRoute.jsp</result>
+     </action>
+     
+      <action name="profitDetails" class="com.demo.action.RouteAction" method="profitDetails">
+           	<result name="adminsuccess">/console/pages/adminpages/profitDetail.jsp</result>
+     		<result name="success">/console/pages/profitDetail.jsp</result>
+     		<result name="error">/console/pages/error.jsp</result>
+     </action>
+     	
+    </package>
+    <package name="UserAction" namespace="/user"
+    	extends="struts-default">
+    	<action name="showUser" class="com.demo.action.UserAction"
+    		method="getUser">
+    		<result name="success">/console/pages/student.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="getUser" class="com.demo.action.UserAction"
+    		method="getUsers">
+    		<result name="success"></result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="showAdmin">
+    		<result>/console/pages/adminpages/admin.jsp</result></action>
+    	<action name="deleteUser" class="com.demo.action.UserAction"
+    		method="deleteUser">
+    		<result name="success">
+    			/console/pages/adminpages/managestudents.jsp
+    		</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="viewUser" class="com.demo.action.UserAction"
+    		method="viewUser">
+    		<result name="success">
+    			/console/pages/adminpages/viewUser.jsp
+    		</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="setPassword" class="com.demo.action.UserAction"
+    		method="setPassword">
+    		<result name="success">/console/pages/adminpages/viewUser.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="setUsername" class="com.demo.action.UserAction"
+    		method="setUsername">
+    		<result name="success">/console/pages/adminpages/viewUser.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="setOsudotnum" class="com.demo.action.UserAction"
+    		method="setOsudotnum">
+    		<result name="success">/console/pages/adminpages/viewUser.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="setMoney" class="com.demo.action.UserAction"
+    		method="setMoney">
+    		<result name="success">/console/pages/adminpages/viewUser.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="updatePassword" class="com.demo.action.UserAction" method="updatePassword">
+    		<result name="success">/console/pages/adminpages/changePassword.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result></action>
+    	<action name="updateUsername" class="com.demo.action.UserAction" method="updateUsername">
+    		<result name="success">/console/pages/adminpages/changeUsername.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result></action>
+    	<action name="updateOsudotnum" class="com.demo.action.UserAction" method="updateOsudotnum">
+    		<result name="success">/console/pages/adminpages/changeOsudotnum.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result></action>
+    	<action name="updateMoney" class="com.demo.action.UserAction" method="updateMoney">
+    		<result name="success">/console/pages/adminpages/changeMoney.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result></action>
+    	<action name="resetUser" class="com.demo.action.UserAction"
+    		method="resetUser">
+    		<result name="success">/console/pages/adminpages/viewUser.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	<action name="goToAdminPage" class="com.demo.action.UserAction"
+    		method="adminPage">
+    		<result name="success">/console/pages/adminpages/changeAdminPassword.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	<action name="setAdminPassword" class="com.demo.action.UserAction"
+    		method="adminPasswordChange">
+    		<result name="success">/console/pages/adminpages/changeAdminPassword.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="goToDeleteClass" class="com.demo.action.UserAction"
+    		method="goToDeleteClass">
+    		<result name="success">/console/pages/adminpages/deleteClass.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    	<action name="deleteClass" class="com.demo.action.UserAction"
+    		method="deleteClass">
+    		<result name="success">/console/pages/adminpages/success.jsp</result>
+    		<result name="error">/console/pages/adminpages/error.jsp</result>
+    	</action>
+    </package>
+    
+     <package name="ProfileAction" namespace="/profile"
+    	extends="struts-default">
+    	<action name="getUserProfile" class="com.demo.action.ProfileAction"
+    		method="getUserProfile">
+    		<result name="success">/console/pages/myProfile.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="getUserAirport" class="com.demo.action.ProfileAction"
+    		method="getUserAirport">
+    		<result name="success">/console/pages/myHub.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="getUserAircrafts" class="com.demo.action.ProfileAction"
+    		method="getUserAircrafts">
+    		<result name="success">/console/pages/myAircrafts.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+		
+		<action name="deleteUserAircrafts" class="com.demo.action.ProfileAction"
+    		method="deleteUserAircrafts">
+    		<result name="success">/console/pages/myAircrafts.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="changeUserAirport" class="com.demo.action.ProfileAction"
+    		method="changeUserAirport">
+    		<result name="success">/console/pages/myHub.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="updateOsudotnumber" class="com.demo.action.ProfileAction"
+    		method="updateOsudotnumber">
+    		<result name="success">/console/pages/myProfile.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="setOsudotnumber" class="com.demo.action.ProfileAction"
+    		method="setOsudotnumber">
+    		<result name="success">/console/pages/setOSUDotNumber.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="updatePassword" class="com.demo.action.ProfileAction"
+    		method="updatePassword">
+    		<result name="success">/console/pages/myProfile.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    	
+    	<action name="setPassword" class="com.demo.action.ProfileAction"
+    		method="setPassword">
+    		<result name="success">/console/pages/setPassword.jsp</result>
+    		<result name="error">/console/pages/error.jsp</result>
+    	</action>
+    </package>
+
+</struts>
